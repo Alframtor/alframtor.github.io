@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import AboutHeroImage from '../assets/Alframtor-profile.jpeg';
 ---
 
 <Layout
@@ -7,6 +8,12 @@ import Layout from '../layouts/BlogPost.astro';
 	description="About Alframtor"
 	pubDate={new Date('July 05 2025')}
 >
+    {AboutHeroImage && (
+      <img
+        src={AboutHeroImage.src}
+        class="about-hero-image"
+      />
+    )}
 	<p>
 		I'm testing my own blog
 	</p>

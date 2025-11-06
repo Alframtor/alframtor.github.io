@@ -1,7 +1,7 @@
 ---
 title: 'Differential Gene Expression Analysis in Viral and Bacterial Infections (RNA-seq)'
 description: 'First entry of the portfolio'
-pubDate: 'Nov 5, 2025'
+pubDate: 'Nov 5 2025'
 heroImage: '../../assets/ARN.jpg'
 ---
 ### Context

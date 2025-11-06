@@ -82,6 +82,7 @@ The observed trends were:
   <img src="/assets/Venn.png" alt="Venn diagram" />
 </div>
 
+
 ##### 5. Functional analysis
 
 An over-representation analysis (Gene Ontology – Biological Process) was performed on the genes overexpressed in COVID-19 compared to healthy controls, employing *topGO*.
@@ -97,3 +98,15 @@ These results point to mechanisms related to cellular reorganization and prolife
 ![REVIGO](../../assets/REVIGO.png)
 
 ### Results and interpretation
+The exploratory analysis allowed for the identification of clear expression patterns that differentiated the three cohorts.
+Differential analysis showed an intense and broad response in bacterial infections, while the *COVID-19* response was more subtle and specific.
+Functional analysis indicated that *COVID-19*-associated genes related to cell cycle and cellular structure regulatory processes, which is consistent with known immune response mechanisms against viruses.
+
+### Conclusions
+
+This project allowed for the application of a complete transcriptomic analysis pipeline, from data integration and cleaning to the functional interpretation of results. Competencies were developed in:
+- Construction and management of SummarizedExperiment objects.
+- Quality control and normalization of RNA-seq data.
+- Exploratory analysis using PCA, clustering, and heatmaps.
+- Differential expression analysis with limma-voom.
+- Functional analysis using topGO and REVIGO.

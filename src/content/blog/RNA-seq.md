@@ -58,3 +58,42 @@ Subsequently, a heatmap of the 500 most variable genes was generated, where hier
 ![Heatmap](../../assets/Heatmap.png)
 
 In view of these results, **race** and **age** were identified as variables that must be included in the differential analysis design matrix to control for their effect and isolate the pure infection response.
+
+##### 4. Differential expression analysis
+
+The **limma-voom** method, widely used in RNA-seq analysis with linear models, was applied for differential expression analysis.
+The procedure consisted of:
+- Voom transformation to stabilize variance (top left image).
+- Adjustment of a linear model incorporating cohorts and covariates (age and race).
+- Definition of contrasts:
+    - *Bacterial* vs *Healthy*.
+    - *COVID-19* vs *Healthy*.
+- Correction for multiple comparisons using FDR.
+The observed trends were:
+- A notably larger and broader transcriptomic change in the *Bacterial* vs *Healthy* comparison (top right image).
+- A more moderate response in *COVID-19* vs *Healthy* (bottom left image).
+- Reduced overlap between both DEG lists (bottom right image).
+- Coherence in the direction of regulation for shared genes.
+
+<div class="cuadricula-2x2">
+  <img src="/assets/Voom.png" alt="Voom: Mean-variance tren" />
+  <img src="/assets/Heatmap_BH.png" alt="Heatmap Bacterial vs Healthy" />
+  <img src="/assets/Heatmap_CH.png" alt="Heatmap COVID-19 vs Healthy" />
+  <img src="/assets/Venn.png" alt="Venn diagram" />
+</div>
+
+##### 5. Functional analysis
+
+An over-representation analysis (Gene Ontology – Biological Process) was performed on the genes overexpressed in COVID-19 compared to healthy controls, employing *topGO*.
+The resulting terms were visualized using **REVIGO** to facilitate interpretation.
+The most prominent functional processes included:
+- Cell cycle
+- Cytoskeleton organization
+- Mitosis regulation
+- Chromosomal dynamics
+
+These results point to mechanisms related to cellular reorganization and proliferation commonly observed in responses to viral infections.
+
+![REVIGO](../../assets/REVIGO.png)
+
+### Results and interpretation

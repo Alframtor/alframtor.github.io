@@ -22,7 +22,7 @@ The primary objective was to perform a complete differential expression analysis
 
 The analysis was developed entirely in R using packages from the Bioconductor ecosystem.
 
-#### 1. Data acquisition and preparation
+##### 1. Data acquisition and preparation
 
 The count matrix and metadata were downloaded from GEO. After reviewing the dataset's integrity, duplicates per individual were removed, and clinical variables (age, race, cohort, and batch) were homogenized.
 Subsequently, 75 samples were randomly selected. A SummarizedExperiment object was constructed, integrating:
@@ -30,4 +30,25 @@ Subsequently, 75 samples were randomly selected. A SummarizedExperiment object w
 - The tidy metadata.
 - Gene annotations retrieved using EnsDb.Hsapiens.v113.
 
+
 ![SummarizedExperiment](../../assets/SummarizedExperiment.png)
+
+##### 2. Filtering, normalization and transformation
+
+Low-expression genes were removed as they are not biologically relevant, and both normalized measures and logarithmic transformations adapted for voom analysis were applied.
+
+##### 3. Exploratory analysis
+
+A Principal Component Analysis (PCA) was performed on the transformed data. The PCA revealed:
+- A clear separation among cohorts: Healthy, Bacterial, and COVID-19.
+- A strong correlation between cohort and race, where Bacterial individuals were predominantly African American, and the other groups were mostly white.
+- Significant differences in age distribution among cohorts, with Bacterial individuals being the oldest, followed by Healthy and COVID-19.
+- Absence of a batch effect.
+- Absence of relevant outliers.
+
+<div class="cuadricula-2x2">
+  <img src="../../assets/PCA_Cohort.png" alt="PCA - Cohorts" />
+  <img src="../../assets/PCA_Race.png" alt="PCA - Race" />
+  <img src="../../assets/PCA_Age.png" alt="PCA - Age" />
+  <img src="../../assets/Boxplot_Age.png" alt="Boxplot Age" />
+</div>

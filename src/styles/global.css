@@ -171,3 +171,31 @@ hr {
   display: block;
   border-radius: 500px; /* Optional: adds nice rounded corners */
 }
+/* REGLAS PARA LA CUADRÍCULA 2x2 (SOLO HACER ESTO UNA VEZ) */
+.cuadricula-2x2 {
+    /* Convierte el contenedor en una cuadrícula de 2 columnas */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    /* Espacio entre las imágenes (ajusta 1.5rem si quieres más o menos espacio) */
+    gap: 1.5rem; 
+    
+    /* Centra la cuadrícula entera en el post (Opcional) */
+    margin: 0 auto; 
+    
+    /* Máximo ancho para la cuadrícula completa (ajusta 700px si quieres que sea más ancha/estrecha) */
+    max-width: 700px; 
+}
+
+/* Reglas para las imágenes dentro de la cuadrícula */
+.cuadricula-2x2 img {
+    /* Asegura que la imagen llene el espacio de su celda */
+    width: 100%;
+    height: auto;
+    
+    /* Opcional: Para que las imágenes se vean mejor si no son cuadrados perfectos */
+    object-fit: cover;
+    
+    /* Opcional: Esquinas un poco redondeadas */
+    border-radius: 8px;
+}

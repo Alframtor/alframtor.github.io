@@ -47,8 +47,8 @@ A Principal Component Analysis (PCA) was performed on the transformed data. The 
 - Absence of relevant outliers.
 
 <div class="cuadricula-2x2">
-  <img src="assets/PCA_Cohort.png" alt="PCA - Cohorts" />
-  <img src="assets/PCA_Race.png" alt="PCA - Race" />
-  <img src="assets/PCA_Age.png" alt="PCA - Age" />
-  <img src="assets/Boxplot_Age.png" alt="Boxplot Age" />
+  <img src="/assets/PCA_Cohort.png" alt="PCA - Cohorts" />
+  <img src="/assets/PCA_Race.png" alt="PCA - Race" />
+  <img src="/assets/PCA_Age.png" alt="PCA - Age" />
+  <img src="/assets/Boxplot_Age.png" alt="Boxplot Age" />
 </div>

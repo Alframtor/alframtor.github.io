@@ -14,7 +14,7 @@ The primary objective was to perform a complete differential expression analysis
 
 - Process and explore an RNA-seq dataset corresponding to three cohorts: *Healthy*, *Bacterial*, and *COVID-19*.
 - Identify potential confounding variables that could affect gene expression.
-- Detect differentially expressed genes (DEGs) in the contrasts Bacterial vs Healthy and COVID-19 vs Healthy.
+- Detect differentially expressed genes (DEGs) in the contrasts *Bacterial* vs *Healthy* and *COVID-19* vs *Healthy*.
 - Biologically interpret the results through functional enrichment analysis.
 
 
@@ -25,7 +25,7 @@ The analysis was developed entirely in R using packages from the Bioconductor ec
 ##### 1. Data acquisition and preparation
 
 The count matrix and metadata were downloaded from GEO. After reviewing the dataset's integrity, duplicates per individual were removed, and clinical variables (age, race, cohort, and batch) were homogenized.
-Subsequently, 75 samples were randomly selected. A SummarizedExperiment object was constructed, integrating:
+Subsequently, 75 samples were randomly selected. A **SummarizedExperiment** object was constructed, integrating:
 - The cleaned count matrix.
 - The tidy metadata.
 - Gene annotations retrieved using EnsDb.Hsapiens.v113.
@@ -40,9 +40,9 @@ Low-expression genes were removed as they are not biologically relevant, and bot
 ##### 3. Exploratory analysis
 
 A **Principal Component Analysis (PCA)** was performed on the transformed data. The PCA revealed:
-- A clear separation among cohorts: Healthy, Bacterial, and COVID-19.
-- A strong correlation between cohort and race, where Bacterial individuals were predominantly African American, and the other groups were mostly white.
-- Significant differences in age distribution among cohorts, with Bacterial individuals being the oldest, followed by Healthy and COVID-19.
+- A clear separation among cohorts: *Healthy*, *Bacterial*, and *COVID-19* (top left image).
+- A strong correlation between cohort and race, where *Bacterial* individuals were predominantly African American, and the other groups were mostly white (top right image).
+- Significant differences in age distribution among cohorts, with *Bacterial* individuals being the oldest, followed by *Healthy* and *COVID-19* (bottom left and right images).
 - Absence of a batch effect.
 - Absence of relevant outliers.
 

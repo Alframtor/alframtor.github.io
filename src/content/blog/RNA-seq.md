@@ -12,7 +12,7 @@ The primary objective was to perform a complete differential expression analysis
 
 ### Objectives
 
-- Process and explore an RNA-seq dataset corresponding to three cohorts: Healthy, Bacterial, and COVID-19.
+- Process and explore an RNA-seq dataset corresponding to three cohorts: *Healthy*, *Bacterial*, and *COVID-19*.
 - Identify potential confounding variables that could affect gene expression.
 - Detect differentially expressed genes (DEGs) in the contrasts Bacterial vs Healthy and COVID-19 vs Healthy.
 - Biologically interpret the results through functional enrichment analysis.
@@ -39,7 +39,7 @@ Low-expression genes were removed as they are not biologically relevant, and bot
 
 ##### 3. Exploratory analysis
 
-A Principal Component Analysis (PCA) was performed on the transformed data. The PCA revealed:
+A **Principal Component Analysis (PCA)** was performed on the transformed data. The PCA revealed:
 - A clear separation among cohorts: Healthy, Bacterial, and COVID-19.
 - A strong correlation between cohort and race, where Bacterial individuals were predominantly African American, and the other groups were mostly white.
 - Significant differences in age distribution among cohorts, with Bacterial individuals being the oldest, followed by Healthy and COVID-19.
@@ -52,3 +52,9 @@ A Principal Component Analysis (PCA) was performed on the transformed data. The 
   <img src="/assets/PCA_Age.png" alt="PCA - Age" />
   <img src="/assets/Boxplot_Age.png" alt="Boxplot Age" />
 </div>
+
+Subsequently, a heatmap of the 500 most variable genes was generated, where hierarchical clustering confirmed the segregation observed in the PCA. 
+
+![Heatmap](../../assets/Heatmap.png)
+
+In view of these results, **race** and **age** were identified as variables that must be included in the differential analysis design matrix to control for their effect and isolate the pure infection response.

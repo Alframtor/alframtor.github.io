@@ -14,7 +14,7 @@ The goal was to implement a complete variant analysis pipeline starting from **p
 ### Objectives
 
 - Evaluate the quality of initial sequencing reads.
-- Align sequences to the reference genome (hg38).
+- Align sequences to the reference genome (**hg38**).
 - Identify Single Nucleotide Variant (SNV) and Indels variants using variant calling tools.
 - Functionally annotate the detected variants to infer their biological impact.
 - Synthetically present the main results and the analysis limitations.
@@ -22,7 +22,7 @@ The goal was to implement a complete variant analysis pipeline starting from **p
 
 ### Methodology
 
-The analysis was performed entirely on the Galaxy Europe platform ($\text{usegalaxy.eu}$), following a standard exome sequencing pipeline:
+The analysis was performed entirely on the **Galaxy Europe platform** (usegalaxy.eu), following a standard exome sequencing pipeline:
 
 ##### 1. Data loading and preparation
 
@@ -30,10 +30,10 @@ Two paired FASTQ files (read1, read2) were randomly downloaded following the pro
 
 ##### 2. Quality Control
 
-FASTQC was applied to each FASTQ file. The report showed:
+**FASTQC** was applied to each FASTQ file. The report showed:
 - Adequate overall quality.
 - Some quality drops in the initial/final bases.
-- Slight differences between read1 (left image) and read2 (right image) (typical in paired-end sequencing). 
+- Slight differences between read1 *(left image)* and read2 *(right image)* (typical in paired-end sequencing). 
 
 
 <div class="cuadricula-1x2">
@@ -46,24 +46,23 @@ Given the goal of a simplified pipeline version, no additional trimming was appl
 
 ##### 3. Alignment to reference genome
 
-Alignment was performed using BWA-MEM against the hg38 reference.
+Alignment was performed using **BWA-MEM** against the hg38 reference.
 Subsequently, the BAM file was sorted using SAMtools sort. Alignment quality was assessed using Samtools idxstats, resulting in:
 - A high number of reads correctly assigned to the main chromosomes.
 - Presence of reads assigned to alternative contigs (e.g., chrUn”, “_alt”), common in hg38.
 
 Alignment quality was considered acceptable.
 
+![Alignment Quality](../../assets/Alignment_Q.png)
+
 Furthermore, the alignment file was visualized using the Integrated Genome Browser (IGB), allowing examination of specific regions, coverage, and discrepancies.
 
-<div class="cuadricula-1x2">
-  <img src="/assets/Alignment_Q.png" alt="Alignment Quality" />
-  <img src="/assets/IGB.png" alt="IGB" />
-</div>
+![IGB](../../assets/IGB.png)
 
 
 ##### 4. Variant identification
 
-FreeBayes was applied, selecting the simple diploid calling mode with filtering by quality and coverage. The result was a VCF file, containing:
+**FreeBayes** was applied, selecting the simple diploid calling mode with filtering by quality and coverage. The result was a VCF file, containing:
 - The detected variants (SNVs and small indels).
 - Their genomic position, alternate alleles and quality/filter information.
 - Basic annotations included in the INFO field.
@@ -72,7 +71,7 @@ FreeBayes was applied, selecting the simple diploid calling mode with filtering 
 
 ##### 5. Functional annotation
 
-The obtained variants were annotated using SnpEff, which provides:
+The obtained variants were annotated using **SnpEff**, which provides:
 - Prediction of the effect on genes and proteins.
 - Classification by impact (High, Moderate, Low, Modifier).
 - Functional classes in coding regions (missense, silent, nonsense, etc.).
@@ -81,7 +80,7 @@ Both an HTML report and a textual summary were generated.
 
 <div class="cuadricula-2x2">
   <img src="/assets/SnpEff_Summary.png" alt="Summary" />
-  <img src="/assets/SnpEff_type.png" alt="Number Variants by Type" />
+  <img src="/assets/SnpEff_Type.png" alt="Number Variants by Type" />
   <img src="/assets/SnpEff_Impact.png" alt="Number of Effects by Impact" />
   <img src="/assets/SnpEff_Class.png" alt="Number of effects by Functional Class" />
 </div>
@@ -91,11 +90,11 @@ Both an HTML report and a textual summary were generated.
 
 The analysis produced:
 - A large set of variants, as is typical in exome sequencing.
-- A high proportion of SNVs compared to INDELs, consistent with human variability.
-- A predominance of variants classified as "Modifier", which usually correspond to non-coding regions or mild effects.
+- A **high proportion of SNVs** compared to INDELs, consistent with human variability.
+- A predominance of variants classified as **"Modifier"**, which usually correspond to non-coding regions or mild effects.
 - A smaller fraction of variants with High or Moderate impact.
 
-In the functional classification, missense variants represented the most frequent coding category, followed by silent variants, which aligns with the expected pattern for an individual without a known pathological phenotype.
+In the functional classification, **missense** variants represented the most frequent coding category, followed by silent variants, which aligns with the expected pattern for an individual without a known pathological phenotype.
 
 
 ### Limitations

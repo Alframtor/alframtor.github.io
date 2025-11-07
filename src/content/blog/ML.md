@@ -12,7 +12,7 @@ This project focuses on predicting the secondary structure of the central amino 
 
 ### Objective
 - Prepare a dataset of protein sequences encoded using one-hot encoding.
-- Develop a k-NN classifier to predict the structural classes: $\alpha$-helix (*h*), $\beta$-sheet (*e*), and coil (_).
+- Develop a k-NN classifier to predict the structural classes: &alpha;-helix (*h*), &beta;-sheet (*e*), and coil (_).
 - Evaluate the model's performance for different *k* values.
 - Build a second binary classifier (coil vs non-coil) and analyze its performance using ROC curves and AUC.
 - Compare results, identify patterns, and discuss which *k* values provide the best predictions.
@@ -47,3 +47,44 @@ This was achieved using *createDataPartition()* to preserve the original class p
 A k-NN model was trained with *k* values: 1, 3, 5, 7, 11. The following metrics were evaluated:
 - **Accuracy** (percentage of correct predictions).
 - **Kappa** (chance-corrected agreement coefficient).
+
+**Observed trends:**
+- *k* = 1 offered the best overall performance.
+- Higher *k* values reduced predictive capacity, reflecting the local nature of the problem (short windows &rarr; closer neighbors are more informative).
+- The dominant coil class significantly influenced overall performance.
+
+![Results Multiclass](../../assets/Results_multiclass.png)
+
+##### 4. Binary classification (coil vs non-coil)
+
+*h* and *e* were grouped as non-coil. An independent model was trained for each *k* and evaluated using:
+- ROC curve.
+- AUC (Area Under the Curve).
+- False Positives (FP).
+- False Negatives (FN).
+- Total error.
+
+![ROC Curve k=1](../../assets/ROC_k_1.png)
+
+**Main results:**
+- *k* = 1 showed the best behavior (highest AUC, fewer errors).
+- Higher k decreased the model's discriminative power.
+- The binary problem proved simpler than the multiclass classification.
+
+![Results Binary](../../assets/Results_binary.png)
+
+
+### Results and interpretation
+
+The analysis demonstrated that:
+- Local secondary structure can be reasonably well predicted using simple methods like *k-NN*.
+- The low *k* value (*k*=1) is the most appropriate, as it preserves the local nature of the 17-residue window.
+- These results are consistent with classical studies of sliding window prediction: secondary structure is highly dependent on the immediate local environment.
+
+### Conclusions
+
+This project allowed for the application of a complete machine learning workflow in the context of structural bioinformatics, including:
+- Efficient encoding of biological sequences via one-hot encoding.
+- Handling of unbalanced datasets.
+- Design and evaluation of both multiclass and binary *k-NN* classifiers.
+- Interpretation of metrics like Accuracy, Kappa, ROC and AUC.

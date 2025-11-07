@@ -30,3 +30,16 @@ Two paired FASTQ files (read1, read2) were randomly downloaded following the pro
 
 ##### 2. Quality Control
 
+FASTQC was applied to each FASTQ file. The report showed:
+- Adequate overall quality.
+- Some quality drops in the initial/final bases.
+- Slight differences between read1 and read2 (typical in paired-end sequencing). 
+Given the goal of a simplified pipeline version, no additional trimming was applied.
+
+<div class="cuadricula-1x2">
+  <img src="/assets/FASTQC_1.png" alt="FASTQC_1" />
+  <img src="/assets/FASTQC_2.png" alt="FASTQC_2" />
+</div>
+
+##### 3. Alignment to reference genome
+

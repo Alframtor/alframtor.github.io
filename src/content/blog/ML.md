@@ -6,7 +6,7 @@ heroImage: '../../assets/ML_portada.jpg'
 ---
 ### Context
 
-Protein secondary structure ($\alpha$-helix, $\beta$-sheet, or coil) contains essential information about a protein's stability, function, and folding. When homologous proteins with known structure are unavailable, machine learning methods can be used to predict the secondary structure from the primary sequence.
+Protein secondary structure (&alpha;-helix, &beta;-sheet, or coil) contains essential information about a protein's stability, function, and folding. When homologous proteins with known structure are unavailable, machine learning methods can be used to predict the secondary structure from the primary sequence.
 
 This project focuses on predicting the secondary structure of the central amino acid within 17-residue windows, using data from proteins with known structures and applying a **k-Nearest Neighbors (k-NN) classifier**.
 
@@ -44,4 +44,6 @@ This was achieved using *createDataPartition()* to preserve the original class p
 
 ##### 3. Multiclass classification (*h*, *e*, _)
 
-
+A k-NN model was trained with *k* values: 1, 3, 5, 7, 11. The following metrics were evaluated:
+- **Accuracy** (percentage of correct predictions).
+- **Kappa** (chance-corrected agreement coefficient).
